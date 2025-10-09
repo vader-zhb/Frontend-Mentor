@@ -1,27 +1,195 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!doctype html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>天气应用</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>weather-app</title>
+  <link rel="stylesheet" href="./src/style.css" />
 </head>
+
 <body>
-    <header>
-        <h1>天气应用</h1>
-    </header>
-    <main>
-        <section id="weather-info">
-            <!-- 天气信息将在这里显示 -->
-        </section>
-        <form id="city-form">
-            <input type="text" id="city-input" placeholder="输入城市名称" required>
-            <button type="submit">查询天气</button>
-        </form>
-    </main>
-    <footer>
-        <p>&copy; 2024 天气应用</p>
-    </footer>
-    <script src="app.js"></script>
+  <div id="app" class="container">
+    <div id="header" class="header">
+      <img src="./src/assets/images/logo.svg" alt="location icon" />
+      <div class="unit-switch">
+        <img src="./src/assets/images/icon-units.svg" alt="units icon" />
+        <span class="unit">Units</span>
+        <img src="./src/assets/images/icon-dropdown.svg" alt="arrow icon" />
+      </div>
+    </div>
+    <h1> How's the sky looking today?</h1>
+    <div class="center-search">
+      <div class="input-wrapper">
+        <img src="./src/assets/images/icon-search.svg" alt="search icon" class="search-icon" />
+        <input type="text" placeholder="Search for places..." />
+      </div>
+      <button class="search-btn">search</button>
+    </div>
+    <div class="content-container">
+      <div class="weather-today">
+        <div class="weather-today-wrapper">
+          <div class="weather-location">
+            <span>Berlin, Germany</span>
+            <span>Tuesday, Aug 5, 2025</span>
+          </div>
+          <div class="weather-status">
+            <img src="./src/assets/images/icon-sunny.webp" alt="sunny icon" class="weather-icon" />
+            <span class="weather-temp">20°</span>
+          </div>
+        </div>
+        <div class="weather-feel">
+
+          <div class="feel-wrapper1">
+            <span class="weather-feel-span-item">Feels like</span>
+            <span class="weather-feel-span-item">64°</span>
+          </div>
+          <div class="feel-wrapper2">
+            <span class="weather-feel-span-item">Humidity</span>
+            <span class="weather-feel-span-item">46%</span>
+          </div>
+          <div class="feel-wrapper2">
+            <span class="weather-feel-span-item">Wind</span>
+            <span class="weather-feel-span-item">14 km/h</span>
+          </div>
+          <div class="feel-wrapper2">
+            <span class="weather-feel-span-item">Wind</span>
+            <span class="weather-feel-span-item">14 km/h</span>
+          </div>
+        </div>
+
+        <div class="daily-forecast">
+          <h4>Daily Forecast</h4>
+          <div class="forecast-wrapper">
+            <div class="forecast-item">
+              <span class="forecast-day">Tue</span>
+              <img src="./src/assets/images/icon-rain.webp" alt="sunny icon" class="forecast-icon" />
+
+              <div class="forecast-divider">
+                <span class="forecast-temp">20°</span>
+                <span class="forecast-temp">14°</span>
+              </div>
+            </div>
+            <div class="forecast-item">
+              <span class="forecast-day">Wed</span>
+              <img src="./src/assets/images/icon-rain.webp" alt="sunny icon" class="forecast-icon" />
+
+              <div class="forecast-divider">
+                <span class="forecast-temp">20°</span>
+                <span class="forecast-temp">14°</span>
+              </div>
+            </div>
+            <div class="forecast-item">
+              <span class="forecast-day">Thu</span>
+              <img src="./src/assets/images/icon-rain.webp" alt="sunny icon" class="forecast-icon" />
+
+              <div class="forecast-divider">
+                <span class="forecast-temp">20°</span>
+                <span class="forecast-temp">14°</span>
+              </div>
+            </div>
+            <div class="forecast-item">
+              <span class="forecast-day">Fri</span>
+              <img src="./src/assets/images/icon-rain.webp" alt="sunny icon" class="forecast-icon" />
+
+              <div class="forecast-divider">
+                <span class="forecast-temp">22°</span>
+                <span class="forecast-temp">16°</span>
+              </div>
+            </div>
+            <div class="forecast-item">
+              <span class="forecast-day">Sat</span>
+              <img src="./src/assets/images/icon-rain.webp" alt="sunny icon" class="forecast-icon" />
+
+              <div class="forecast-divider">
+                <span class="forecast-temp">19°</span>
+                <span class="forecast-temp">12°</span>
+              </div>
+            </div>
+            <div class="forecast-item">
+              <span class="forecast-day">Sun</span>
+              <img src="./src/assets/images/icon-rain.webp" alt="sunny icon" class="forecast-icon" />
+
+              <div class="forecast-divider">
+                <span class="forecast-temp">19°</span>
+                <span class="forecast-temp">12°</span>
+              </div>
+            </div>
+            <div class="forecast-item">
+              <span class="forecast-day">Mon</span>
+              <img src="./src/assets/images/icon-rain.webp" alt="sunny icon" class="forecast-icon" />
+              <div class="forecast-divider">
+                <span class="forecast-temp">19°</span>
+                <span class="forecast-temp">12°</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-container">
+        <div class="hourly-forecast-header">
+          <span>Hourly Forecast</span>
+          <div class="hourly-forecast-divider">
+            <span class="hourly-forecast-span-item">Today</span>
+            <img src="./src/assets/images/icon-dropdown.svg" alt="arrow icon" />
+          </div>
+        </div>
+        <div class="hourly-forecast-content"> 
+          <div class="hourly-forecast-item">
+            <img src="./src/assets/images/icon-sunny.webp" alt="sunny icon" class="hourly-forecast-icon" />
+            <span class="hourly-forecast-time">2 PM</span>
+            <span class="hourly-forecast-temp">20°</span>
+          </div>
+          <div class="hourly-forecast-item">
+            <img src="./src/assets/images/icon-sunny.webp" alt="sunny icon" class="hourly-forecast-icon" />
+            <span class="hourly-forecast-time">3 PM</span>
+            <span class="hourly-forecast-temp">20°</span>
+          </div>
+          <div class="hourly-forecast-item">
+            <img src="./src/assets/images/icon-fog.webp" alt="fog icon" class="hourly-forecast-icon" />
+            <span class="hourly-forecast-time">4 PM</span>
+            <span class="hourly-forecast-temp">20°</span>
+          </div>
+          <div class="hourly-forecast-item">
+            <img src="./src/assets/images/icon-drizzle.webp" alt="drizzle icon" class="hourly-forecast-icon" />
+            <span class="hourly-forecast-time">5 PM</span>
+            <span class="hourly-forecast-temp">20°</span>
+          </div>
+          <div class="hourly-forecast-item">
+            <img src="./src/assets/images/icon-sunny.webp" alt="sunny icon" class="hourly-forecast-icon" />
+            <span class="hourly-forecast-time">6 PM</span>
+            <span class="hourly-forecast-temp">20°</span>
+          </div>
+          <div class="hourly-forecast-item">
+            <img src="./src/assets/images/icon-sunny.webp" alt="sunny icon" class="hourly-forecast-icon" />
+            <span class="hourly-forecast-time">7 PM</span>
+            <span class="hourly-forecast-temp">20°</span>
+          </div>
+          <div class="hourly-forecast-item">
+            <img src="./src/assets/images/icon-snow.webp" alt="snow icon" class="hourly-forecast-icon" />
+            <span class="hourly-forecast-time">8 PM</span>
+            <span class="hourly-forecast-temp">20°</span>
+          </div>
+          <div class="hourly-forecast-item">
+            <img src="./src/assets/images/icon-sunny.webp" alt="sunny icon" class="hourly-forecast-icon" />
+            <span class="hourly-forecast-time">9 PM</span>
+            <span class="hourly-forecast-temp">20°</span>
+          </div>
+          <div class="hourly-forecast-item">
+            <img src="./src/assets/images/icon-storm.webp" alt="sunny icon" class="hourly-forecast-icon" />
+            <span class="hourly-forecast-time">10 PM</span>
+            <span class="hourly-forecast-temp">20°</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
 </body>
-</html></form>
+
+</html>

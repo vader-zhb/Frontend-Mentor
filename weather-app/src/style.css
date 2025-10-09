@@ -1,0 +1,366 @@
+body {
+  background-color: #d7dcd6;
+}
+
+#app {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+}
+.header {
+  margin:  48px auto;
+  display: flex;
+  width: 1216px;
+  height: 43px;
+  align-items: center;
+  justify-content: space-between; /* 两端对齐 */
+}
+@font-face {
+  font-family: 'BricolageGrotesque-Bold';
+  src: url('./src/assets/fonts/BricolageGrotesque-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+h1 {
+  font-family: 'BricolageGrotesque-Bold', sans-serif;
+  font-size: 52px;
+  text-align: center;
+  margin: 64px 112px;
+  font-weight: bold;
+}
+
+.center-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: fit-content;
+  height: 56px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 526px;
+  height: 56px;
+  background: #fff;
+  border-radius: 12px;      /* 圆角弧度 */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* 可选：轻微阴影 */
+
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.input-wrapper input {
+  width: 100%;
+  height: 100%;
+  padding-left: 52px;       /* 给icon留空间 */
+  padding-right: 16px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  background: transparent;
+  border-radius: 12px;      /* 保持圆角 */
+  box-sizing: border-box;
+}
+
+.search-btn {
+  width: 114px;
+  height: 56px;
+  margin-left: 16px;
+  border: none;
+  border-radius: 12px;
+  background: #3b82f6;      /* blue-500 */
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.unit-switch {
+  width: 119px;
+  height: 43px;
+  display: flex;
+  align-items: center;      /* 垂直居中对齐 */
+  justify-content: center;  /* 水平居中对齐 */
+  gap: 10px;               /* 元素间距为 10px */
+  background-color: rgba(230, 8, 12, 0.89);
+}
+
+/* 第一个图标 (icon-units.svg) */
+.unit-switch > img:first-of-type {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* 中间的文字元素 */
+.unit-switch .unit {
+  width: 39px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+}
+
+/* 最后一个图标 (icon-dropdown.svg) */
+.unit-switch > img:last-of-type {
+  width: 12px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.content-container {
+  display: flex;
+  gap: 32px;
+}
+.right-container {
+  display: flex;
+  border-radius: 20px;
+  background-color: #da1c1c;
+  flex-direction: column;
+  margin-top: 48px;
+  gap: 16px;
+  width: 384px;
+  height: 693px;
+}
+.hourly-forecast-header {
+  display: flex;
+  justify-content: space-between; /* 两端对齐 */
+  align-items: center;
+  margin-top: 24px;
+  margin-left: 24px;
+  margin-right: 24px;
+  margin-bottom: 16px;
+}
+
+
+.hourly-forecast-content {
+  overflow-y: scroll;
+  display: flex;
+  margin-left: 24px;
+  margin-bottom: 24px;
+  flex-direction: column;
+  gap: 16px; /* 元素间的上下间隔 */
+}
+/* WebKit浏览器：自定义滚动条滑块大小 */
+.hourly-forecast-content::-webkit-scrollbar {
+  width: 12px; /* 垂直滚动条的宽度（看起来像厚度） */
+  height: 12px; /* 水平滚动条的高度 */
+}
+
+.hourly-forecast-content::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+  min-height: 50px; /* 设置滑块最小高度 */
+  max-height: 50px;
+}
+
+
+.hourly-forecast-item {
+  display: flex;
+  align-items: center; /* 水平居中对齐 */
+  background: #fff;
+  border-radius: 8px;
+  margin-right: 24px;
+  padding: 10px 16px 10px 12px;
+}
+.hourly-forecast-item img {
+  width: 40px;
+  height: 40px;
+}
+.hourly-forecast-time {
+  width: 226px;
+  height: 24px;
+}
+
+.weather-today {
+  position: relative;
+  margin-top: 48px;
+  margin-left: 112px;
+  width: 800px;
+  height: 693px; /* 添加固定高度 */
+}
+.hourly-forecast {
+  width: 1216px;
+  height: 150px; /* 添加固定高度 */
+}
+
+.weather-today-wrapper {
+  background-image: url('/src/assets/images/bg-today-large.svg');
+  background-repeat: no-repeat;   /* 不平铺 */
+  background-size: auto;          /* 保持原始大小 */
+  position: relative;
+  width: 800px;
+  height: 286px;
+  display: flex;
+justify-content: space-between; /* 两端对齐 */
+}
+
+.weather-location {
+  position: relative;         /* 取消 absolute，参与 flex 垂直居中 */
+  font-size: 20px;
+  width: 458px;
+  font-weight: bold;
+  margin: 109px 0px 109px 24px;           /* 上下间距 24px，左右自动 */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  line-height: 1.4;
+  justify-content: center;
+  gap: 10px;
+}
+.weather-location span {
+  display: block;      /* 块级展示，每个 span 独占一行 */
+  margin-bottom: 10px; /* 下方间隔 10px */
+}
+
+.weather-location span:last-child {
+  margin-bottom: 0;    /* 最后一个 span 不要多余间距 */
+}
+
+.weather-status {
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+}
+
+.weather-icon {
+  width: 120px;
+  height: 120px;
+}
+
+.weather-temp {
+  font-size: 96px;
+  color: #fff;
+  font-style: italic;
+}
+
+.weather-feel {
+  display: flex;
+  position: relative;
+  border-radius: 12px;
+  width: 800px;
+  top: 32px;
+  font-size: 16px;
+  color: #fff;
+  gap: 24px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.feel-wrapper1 {
+  position: relative;
+  background-color: aqua;
+  width: 122px;
+  height: 118px;
+  border-radius: 12px;
+  font-size: 16px;
+  padding: 20;
+  color: #fff;
+}
+
+.feel-wrapper1 span {
+  margin-left: 20px;
+  margin-top: 20px;
+  display: block;
+  align-items: center;
+  margin: 16px;
+}
+
+.feel-wrapper1 span:last-child {
+  margin-left: 20px;
+  margin-top: 20px;
+  display: block;
+  align-items: center;
+}
+
+
+.feel-wrapper2 {
+  position: relative;
+  background-color: aqua;
+  width: 202px;
+  height: 118px;
+  border-radius: 12px;
+  font-size: 16px;
+  padding: 20;
+  color: #fff;
+}
+
+.feel-wrapper2 span {
+  margin-left: 20px;
+  margin-top: 20px;
+  display: block;
+  align-items: center;
+  margin: 16px;
+}
+
+.feel-wrapper2 span:last-child {
+  margin-left: 20px;
+  margin-top: 20px;
+  display: block;
+  align-items: center;
+}
+
+.daily-forecast {
+  position: relative;
+  top: 48px;
+  width: 800px;
+  height: 693px; /* 添加固定高度 */
+}
+
+.daily-forecast h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.forecast-wrapper {
+  display: flex;
+  width: 800px;
+  height: 165px;
+  gap: 16px;                    
+}
+.forecast-item {
+  display: flex;
+  flex-direction: column; /* 垂直排列 */
+  gap: 16px; /* 元素间的上下间隔 */
+  background: red;
+  border-radius: 12px;
+  width: 100.57px;
+  height: 165px;
+  justify-content: center;
+  align-items: center;
+  
+}
+.forecast-item span {
+  font-size: 16px;
+  width: 31px;
+  height: 22px;
+  font-weight: bold;
+}
+
+.forecast-item img {
+  width: 60px;
+  height: 60px;
+}
+.forecast-divider {
+  display: flex;
+  justify-content: space-between;
+  width: 80.57px;
+  height: 19px;
+  background-color: #e5e7eb; /* Tailwind's gray-200 */
+}
+.forecast-divider span {
+  width: 21px;
+  height: 19px;
+}
+
